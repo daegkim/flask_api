@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from database import db
 from faceRecog import my_face_recog
 import numpy as np
@@ -36,8 +36,9 @@ def human():
     jpg_to_numpy = cv2.imdecode(bytes_to_jpg, 1)
 
     faceRecog = my_face_recog.FaceRecog()
-    find = faceRecog.get_frame(jpg_to_numpy)
-
+    names = faceRecog.getNames(jpg_to_numpy)
+    return ' '.join(names)
+    '''
     cv2.imshow("test",find)
     while True:
         k=cv2.waitKey(0) & 0xFF
@@ -46,6 +47,7 @@ def human():
             break
 
     return 'done'
+    '''
 
 if __name__ == '__main__':
     app.run(debug = True)

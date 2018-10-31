@@ -6,7 +6,7 @@
     window 10 / 64bit
     python 3.6.5
     MariaDB 10.3
-    
+
 ※ 라이브러리 설치(install lib)
     전부 다 [conda install ~]로 설치
     flask / pymysql / requests
